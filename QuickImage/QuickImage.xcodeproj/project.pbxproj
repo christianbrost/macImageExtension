@@ -8,23 +8,56 @@
 
 /* Begin PBXBuildFile section */
 		4C2832B39E3A27BCAE33948B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D097E5705621A1C7A33D01 /* Assets.xcassets */; };
+		4F8D026A6BB36453CDFFD5BE /* ImageConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9A11C39C5F95C3C9AAF516 /* ImageConverter.swift */; };
 		57F180F4C9CEAB25FE62A8C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C25190A7E22CB531B51CD4 /* ContentView.swift */; };
 		9DDEBAB5604A091C39A697CC /* QuickImageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13D1E5351D30759DF00072E /* QuickImageApp.swift */; };
+		A134CE313DEC43F8808E6C3D /* ConvertToPNG.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F5F1EC4F718D14F1F9E013E8 /* ConvertToPNG.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B803FE741BA9EC82D01809A4 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B6531E4C1C54F6F5B2DE9 /* ActionRequestHandler.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		EF86F625FCB7A0221E8EC2CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CE919A0E42A41E7AE3CC276 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D84B6553CE5FB003294E5248;
+			remoteInfo = ConvertToPNG;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C352DC260E3BF2AACE989750 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A134CE313DEC43F8808E6C3D /* ConvertToPNG.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		2C9A11C39C5F95C3C9AAF516 /* ImageConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageConverter.swift; sourceTree = "<group>"; };
 		34D097E5705621A1C7A33D01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		367B6531E4C1C54F6F5B2DE9 /* ActionRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRequestHandler.swift; sourceTree = "<group>"; };
+		385064F78F912ADBC88BEBCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4264DD0CA80FFB9129E6BAD8 /* QuickImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1FA5CD692F8746E118D3C1 /* QuickImage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuickImage.entitlements; sourceTree = "<group>"; };
 		C0C25190A7E22CB531B51CD4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C13D1E5351D30759DF00072E /* QuickImageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickImageApp.swift; sourceTree = "<group>"; };
 		C27992D70C195ED874DE1915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C5D1A6042949F2428E02BC91 /* ConvertToPNG.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ConvertToPNG.entitlements; sourceTree = "<group>"; };
+		F5F1EC4F718D14F1F9E013E8 /* ConvertToPNG.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ConvertToPNG.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		6647C670FBA61D9011CD2690 = {
 			isa = PBXGroup;
 			children = (
+				DFB3ED16E29980F2B804EF8C /* ConvertToPNG */,
 				DF7E4F5C2F034132819CA5DF /* QuickImage */,
 				DFC94A682951AE56FD9F457F /* Products */,
 			);
@@ -42,9 +75,21 @@
 			path = QuickImage;
 			sourceTree = "<group>";
 		};
+		DFB3ED16E29980F2B804EF8C /* ConvertToPNG */ = {
+			isa = PBXGroup;
+			children = (
+				367B6531E4C1C54F6F5B2DE9 /* ActionRequestHandler.swift */,
+				C5D1A6042949F2428E02BC91 /* ConvertToPNG.entitlements */,
+				2C9A11C39C5F95C3C9AAF516 /* ImageConverter.swift */,
+				385064F78F912ADBC88BEBCC /* Info.plist */,
+			);
+			path = ConvertToPNG;
+			sourceTree = "<group>";
+		};
 		DFC94A682951AE56FD9F457F /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				F5F1EC4F718D14F1F9E013E8 /* ConvertToPNG.appex */,
 				4264DD0CA80FFB9129E6BAD8 /* QuickImage.app */,
 			);
 			name = Products;
@@ -59,10 +104,12 @@
 			buildPhases = (
 				EB117A78E1AE75DE3FD3D492 /* Sources */,
 				D54C06E7D535CCA0AA0C08E0 /* Resources */,
+				C352DC260E3BF2AACE989750 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F440B5D9331A619A87191BAA /* PBXTargetDependency */,
 			);
 			name = QuickImage;
 			packageProductDependencies = (
@@ -70,6 +117,23 @@
 			productName = QuickImage;
 			productReference = 4264DD0CA80FFB9129E6BAD8 /* QuickImage.app */;
 			productType = "com.apple.product-type.application";
+		};
+		D84B6553CE5FB003294E5248 /* ConvertToPNG */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E23630A8CB579D587C544A90 /* Build configuration list for PBXNativeTarget "ConvertToPNG" */;
+			buildPhases = (
+				C5258995C793A469557EA61F /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ConvertToPNG;
+			packageProductDependencies = (
+			);
+			productName = ConvertToPNG;
+			productReference = F5F1EC4F718D14F1F9E013E8 /* ConvertToPNG.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -81,6 +145,9 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					230092BDE2732290912C5509 = {
+						ProvisioningStyle = Automatic;
+					};
+					D84B6553CE5FB003294E5248 = {
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -100,6 +167,7 @@
 			projectRoot = "";
 			targets = (
 				230092BDE2732290912C5509 /* QuickImage */,
+				D84B6553CE5FB003294E5248 /* ConvertToPNG */,
 			);
 		};
 /* End PBXProject section */
@@ -116,6 +184,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C5258995C793A469557EA61F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B803FE741BA9EC82D01809A4 /* ActionRequestHandler.swift in Sources */,
+				4F8D026A6BB36453CDFFD5BE /* ImageConverter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB117A78E1AE75DE3FD3D492 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -126,6 +203,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F440B5D9331A619A87191BAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D84B6553CE5FB003294E5248 /* ConvertToPNG */;
+			targetProxy = EF86F625FCB7A0221E8EC2CF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		248AB18D245856B575810753 /* Release */ = {
@@ -161,6 +246,25 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dev.christianbrost.quickimage;
 				PRODUCT_NAME = QuickImage;
 				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6150B6C345ADCE9CB6E37C3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ConvertToPNG/ConvertToPNG.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = ConvertToPNG/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.christianbrost.quickimage.ConvertToPNG;
+				PRODUCT_NAME = ConvertToPNG;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -229,6 +333,25 @@
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
+		};
+		E98BCF278F88D7A92854F755 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ConvertToPNG/ConvertToPNG.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = ConvertToPNG/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.christianbrost.quickimage.ConvertToPNG;
+				PRODUCT_NAME = ConvertToPNG;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
 		};
 		FE702634049BB06FEB8A5270 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -306,6 +429,15 @@
 			buildConfigurations = (
 				25D2F11617459FE8A1D32FC8 /* Debug */,
 				248AB18D245856B575810753 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E23630A8CB579D587C544A90 /* Build configuration list for PBXNativeTarget "ConvertToPNG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6150B6C345ADCE9CB6E37C3B /* Debug */,
+				E98BCF278F88D7A92854F755 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

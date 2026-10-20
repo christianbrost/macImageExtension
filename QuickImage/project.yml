@@ -34,3 +34,34 @@ targets:
       properties:
         com.apple.security.app-sandbox: true
         com.apple.security.files.user-selected.read-write: true
+    dependencies:
+      - target: ConvertToPNG
+        embed: true
+
+  ConvertToPNG:
+    type: app-extension
+    platform: macOS
+    sources:
+      - path: ConvertToPNG
+    info:
+      path: ConvertToPNG/Info.plist
+      properties:
+        CFBundleDisplayName: In PNG konvertieren
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.ui-services
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ActionRequestHandler
+          NSExtensionAttributes:
+            NSExtensionServiceAllowsFinderPreviewItem: true
+            NSExtensionActivationRule:
+              NSExtensionActivationSupportsImageWithMaxCount: 100
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.christianbrost.quickimage.ConvertToPNG
+        PRODUCT_NAME: ConvertToPNG
+        ENABLE_HARDENED_RUNTIME: true
+        SKIP_INSTALL: true
+    entitlements:
+      path: ConvertToPNG/ConvertToPNG.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.files.user-selected.read-write: true
