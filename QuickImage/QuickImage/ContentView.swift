@@ -12,7 +12,7 @@ struct ContentView: View {
 
             Text("Aktivieren:")
                 .font(.headline)
-            Text("Systemeinstellungen → Datenschutz & Sicherheit → Extensions → „Hinzugefügte Extensions“ → QuickImage-Aktionen aktivieren.")
+            Text("Rechtsklick auf eine Bilddatei im Finder → Dienste → Dienste-Einstellungen … → „In PNG konvertieren“ aktivieren.")
                 .fixedSize(horizontal: false, vertical: true)
         }
         .padding(24)

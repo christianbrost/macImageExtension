@@ -43,6 +43,30 @@ entfernen, Hintergrund entfernen mit dem Vision-Framework, AVIF-Export.
 3. Wie öffne ich aus der Extension heraus ein Fenster (z. B. fürs Zuschneiden)?
 4. Was muss ich bei Sandboxing, Dateiberechtigungen und Signierung beachten?
 
+## Entscheidungen (Phase 1)
+1. **Weg ins Finder-Kontextmenü:** Ursprünglich als Action Extension
+   (PlugInKit/ExtensionKit, erscheint unter "Schnellaktionen") geplant und
+   umgesetzt. Auf diesem Rechner (macOS-Beta "Golden Gate", SDK macOS 27,
+   Build 26A425) hängt Finders XPC-Handshake zur Extension zuverlässig nach
+   60 Sekunden ("Die Kommunikation mit einem Hilfsprogramm ist fehlgeschlagen"),
+   bestätigt per Console-Logging auf beiden Seiten (Finder- und
+   Extension-Prozess) — kein Fehler in unserem Code, da `beginRequest` nie
+   aufgerufen wird. Ein Test mit dem klassischen Dienste-Menü (NSServices)
+   funktionierte sofort zuverlässig. Deshalb: Phase 1 nutzt NSServices
+   ("Dienste"-Menü im Finder-Kontextmenü) statt einer Action Extension.
+   Die Action-Extension-Variante kann bei Bedarf später erneut versucht
+   werden, falls ein OS-Update das Problem behebt.
+2. **Formate via ImageIO:** `CGImageSourceCreateWithURL` /
+   `CGImageDestinationCreateWithURL` lesen und schreiben PNG, JPEG, HEIC
+   nativ. WebP kann ImageIO nur lesen, nicht schreiben — dafür wird das SPM-
+   Paket `ainame/Swift-WebP` (dünner libwebp-Wrapper) eingebunden.
+3. **Sandboxing:** App Sandbox wurde deaktiviert. Mit Sandbox erlaubte
+   `com.apple.security.files.user-selected.read-write` nur Zugriff auf die
+   exakt ausgewählte Datei, nicht das Schreiben einer neuen Datei im selben
+   Ordner (`CGImageDestinationCreateWithURL` lieferte `nil`). Da die App nur
+   für den persönlichen Gebrauch ist (kein App Store, keine Notarisierung),
+   ist das unproblematisch.
+
 ## Arbeitsregeln
 - Stell mir zuerst Fragen, wenn etwas unklar ist, bevor du planst.
 - Arbeite in kleinen Schritten. Jede Phase erst planen, dann umsetzen.

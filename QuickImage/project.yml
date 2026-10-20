@@ -7,9 +7,11 @@ options:
 settings:
   base:
     CODE_SIGN_STYLE: Automatic
+    DEVELOPMENT_TEAM: 6WW3PDXBU9
     SWIFT_VERSION: "5.0"
     MARKETING_VERSION: "1.0"
     CURRENT_PROJECT_VERSION: "1"
+    ENABLE_DEBUG_DYLIB: NO
 
 targets:
   QuickImage:
@@ -23,45 +25,24 @@ targets:
         CFBundleDisplayName: QuickImage
         LSMinimumSystemVersion: "14.0"
         LSUIElement: false
+        NSServices:
+          - NSMenuItem:
+              default: "In PNG konvertieren"
+            NSMessage: convertToPNG
+            NSPortName: QuickImage
+            NSSendTypes:
+              - NSFilenamesPboardType
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: dev.christianbrost.quickimage
         PRODUCT_NAME: QuickImage
         ENABLE_HARDENED_RUNTIME: true
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    # No App Sandbox: this is a personal-use tool (no App Store, no notarization,
+    # see SPEC.md). Sandboxing only grants read/write to the exact file the user
+    # selected, not to sibling files in the same folder — which breaks writing the
+    # converted output next to the original. Full disk access is fine for this use case.
     entitlements:
       path: QuickImage/QuickImage.entitlements
       properties:
-        com.apple.security.app-sandbox: true
-        com.apple.security.files.user-selected.read-write: true
-    dependencies:
-      - target: ConvertToPNG
-        embed: true
-
-  ConvertToPNG:
-    type: app-extension
-    platform: macOS
-    sources:
-      - path: ConvertToPNG
-    info:
-      path: ConvertToPNG/Info.plist
-      properties:
-        CFBundleDisplayName: In PNG konvertieren
-        NSExtension:
-          NSExtensionPointIdentifier: com.apple.ui-services
-          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ActionRequestHandler
-          NSExtensionAttributes:
-            NSExtensionServiceAllowsFinderPreviewItem: true
-            NSExtensionActivationRule:
-              NSExtensionActivationSupportsImageWithMaxCount: 100
-    settings:
-      base:
-        PRODUCT_BUNDLE_IDENTIFIER: dev.christianbrost.quickimage.ConvertToPNG
-        PRODUCT_NAME: ConvertToPNG
-        ENABLE_HARDENED_RUNTIME: true
-        SKIP_INSTALL: true
-    entitlements:
-      path: ConvertToPNG/ConvertToPNG.entitlements
-      properties:
-        com.apple.security.app-sandbox: true
-        com.apple.security.files.user-selected.read-write: true
+        com.apple.security.app-sandbox: false

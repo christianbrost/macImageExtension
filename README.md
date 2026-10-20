@@ -9,10 +9,20 @@ Siehe [SPEC.md](./SPEC.md) für die vollständige Projektspezifikation.
 ## Status
 
 🚧 In Entwicklung — Phase 1 (Konvertierung PNG/JPEG/HEIC/WebP).
+PNG-Konvertierung über das Dienste-Menü funktioniert; JPEG/HEIC/WebP folgen.
 
 ## Build
 
-_(folgt, sobald das Xcode-Projekt angelegt ist)_
+```
+cd QuickImage
+xcodegen generate
+xcodebuild -project QuickImage.xcodeproj -scheme QuickImage -configuration Debug build
+```
+
+Danach `QuickImage.app` nach `/Applications` kopieren und einmal starten,
+damit sich der Dienst registriert. Danach im Finder: Rechtsklick auf eine
+Bilddatei → Dienste → Dienste-Einstellungen … → „In PNG konvertieren"
+aktivieren.
 
 ## Wie entstanden
 
